@@ -86,5 +86,7 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
   $BUILD_TYPE_FLAGS \
   "
 
+cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libjsc.so $INSTALL_LIB_UNSTRIPPED_DIR
 cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libjsc.so $INSTALL_DIR
+$TOOLCHAIN_BIN_STRIP $INSTALL_DIR/libjsc.so
 mv $TARGETDIR/webkit/WebKitBuild $TARGETDIR/webkit/${CROSS_COMPILE_PLATFORM}-${FLAVOR}

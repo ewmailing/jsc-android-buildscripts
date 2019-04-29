@@ -14,8 +14,15 @@ else
   SIZE="0"
 fi
 
+if [ -d "$ROOTDIR/build/compiled.unstripped" ]; then
+  SIZE_UNSTRIPPED=$(du -ah $ROOTDIR/build/compiled.unstripped)
+else
+  SIZE_UNSTRIPPED="0"
+fi
+
 printf "\n\n\n\n\n\t\t\tRevision: \x1B[32m$REVISION\x1B[0m\n\n\n"
 printf "Config:\n$CONFIG\n\n"
 printf "Info:\n$INFO\n\n"
 printf "AppleWebkit:\n$APPLE_VERSION\n\n"
 printf "Size:\n$SIZE\n\n"
+printf "Size unstripped:\n$SIZE_UNSTRIPPED\n\n"

@@ -68,6 +68,7 @@ prep() {
 compile() {
   printf "\n\n\t\t===================== starting to compile all archs for i18n="${I18N}" =====================\n\n"
   rm -rf $ROOTDIR/build/compiled
+  rm -rf $ROOTDIR/build/compiled.unstripped
   $ROOTDIR/scripts/compile/all.sh
 }
 
@@ -80,6 +81,20 @@ createAAR() {
   unset TARGET
 }
 
+createUnstrippedLibs() {
+  printf "\n\n\t\t===================== copy unstripped libs =====================\n\n"
+  if ${I18N}
+  then
+    DIST_LIB_UNSTRIPPED_DIR="$ROOTDIR/dist/lib.unstripped/android-jsc-intl/r$REVISION"
+  else
+    DIST_LIB_UNSTRIPPED_DIR="$ROOTDIR/dist/lib.unstripped/android-jsc/r$REVISION"
+  fi
+  mkdir -p $DIST_LIB_UNSTRIPPED_DIR
+  tar cfJ $DIST_LIB_UNSTRIPPED_DIR/libs.tar.xz -C build/compiled.unstripped .
+
+  unset DIST_LIB_UNSTRIPPED_DIR
+}
+
 copyHeaders() {
   printf "\n\n\t\t===================== adding headers to $ROOTDIR/dist/include =====================\n\n"
   mkdir -p $ROOTDIR/dist/include
@@ -90,11 +105,13 @@ export I18N=false
 prep
 compile
 createAAR "android-jsc"
+createUnstrippedLibs
 
 export I18N=true
 prep
 compile
 createAAR "android-jsc"
+createUnstrippedLibs
 
 createAAR "cppruntime"
 
