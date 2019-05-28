@@ -45,6 +45,9 @@ JSC_PATCHSET=(
   # NDK r17c does not define __mulodi4, which is being used in debug build.
   # (However, NDK r19 fixed this)
   "jsc_fix_build_error_mulodi4.patch"
+
+  # Workaround JIT crash on arm64, especially for Saumsung S7 Edge
+  "jsc_fix_arm64_jit_crash.patch"
 )
 
 if [[ "$I18N" = false ]]
