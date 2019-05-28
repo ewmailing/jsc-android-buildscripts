@@ -48,6 +48,9 @@ JSC_PATCHSET=(
 
   # Fix build error if disabling DFG_JIT
   "jsc_fix_build_error_disable_dfg.patch"
+
+  # Workaround JIT crash on arm64, especially for Saumsung S7 Edge
+  "jsc_fix_arm64_jit_crash.patch"
 )
 
 if [[ "$I18N" = false ]]
