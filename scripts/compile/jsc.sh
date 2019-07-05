@@ -58,8 +58,8 @@ then
     "
 else
     JSC_FEATURE_FLAGS=" \
-      -DENABLE_JIT=ON \
-      -DENABLE_C_LOOP=OFF \
+      -DENABLE_JIT=OFF \
+      -DENABLE_C_LOOP=ON \
     "
 fi
 
