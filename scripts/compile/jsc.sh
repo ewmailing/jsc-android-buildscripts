@@ -50,7 +50,7 @@ else
     BUILD_TYPE_FLAGS="-DDEBUG_FISSION=OFF"
 fi
 
-if [[ "$ARCH_NAME" = "i686" ]]
+if [[ "$ARCH_NAME" = "i686" || "$ARCH_NAME" = "aarch64" ]]
 then
     JSC_FEATURE_FLAGS=" \
       -DENABLE_JIT=OFF \
@@ -58,8 +58,8 @@ then
     "
 else
     JSC_FEATURE_FLAGS=" \
-      -DENABLE_JIT=OFF \
-      -DENABLE_C_LOOP=ON \
+      -DENABLE_JIT=ON \
+      -DENABLE_C_LOOP=OFF \
     "
 fi
 
