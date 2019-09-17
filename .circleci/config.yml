@@ -50,8 +50,7 @@ jobs:
           name: install subversion
           command: |
             sudo apt-get update
-            sudo apt-get install coreutils realpath curl git subversion python-dev ruby gperf -y
-            pyenv global 3.5.2
+            sudo apt-get install coreutils realpath curl git subversion python3-dev ruby gperf -y
       - run:
           name: upgrade node
           command: |
