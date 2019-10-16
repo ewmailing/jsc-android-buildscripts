@@ -3,7 +3,7 @@
 SCRIPT_DIR=$(cd `dirname $0`; pwd)
 source $SCRIPT_DIR/common.sh
 
-CMAKE_FOLDER=$(cd $ANDROID_HOME/cmake && ls -1 | sort -r | head -1)
+CMAKE_FOLDER=$(cd $ANDROID_HOME/cmake && ls -1 | sort -r -V | head -1)
 PATH=$TOOLCHAIN_DIR/bin:$ANDROID_HOME/cmake/$CMAKE_FOLDER/bin/:$PATH
 
 rm -rf $TARGETDIR/webkit/$CROSS_COMPILE_PLATFORM-${FLAVOR}
