@@ -4,7 +4,7 @@
          install(TARGETS JavaScriptCore DESTINATION "${LIB_INSTALL_DIR}")
      endif ()
  endif ()
-+set_target_properties(JavaScriptCore PROPERTIES OUTPUT_NAME jsc)
++set_target_properties(JavaScriptCore PROPERTIES OUTPUT_NAME JavaScriptCore)
 
  # Force staging of shared scripts, even if they aren't directly used to build JavaScriptCore.
 

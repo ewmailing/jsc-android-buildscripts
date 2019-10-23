@@ -19,7 +19,7 @@ $PLATFORM_CFLAGS \
 CMAKE_LD_FLAGS=" \
 -latomic \
 -lm \
--lc++_shared \
+-lc++_static \
 $JSC_LDFLAGS \
 $PLATFORM_LDFLAGS \
 "
@@ -88,9 +88,9 @@ $TARGETDIR/webkit/Tools/Scripts/build-webkit \
 
 mkdir -p $INSTALL_UNSTRIPPED_DIR_I18N/$JNI_ARCH
 mkdir -p $INSTALL_DIR_I18N/$JNI_ARCH
-cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libjsc.so $INSTALL_UNSTRIPPED_DIR_I18N/$JNI_ARCH
-cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libjsc.so $INSTALL_DIR_I18N/$JNI_ARCH
-$TOOLCHAIN_DIR/$CROSS_COMPILE_PLATFORM/bin/strip $INSTALL_DIR_I18N/$JNI_ARCH/libjsc.so
+cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libJavaScriptCore.so $INSTALL_UNSTRIPPED_DIR_I18N/$JNI_ARCH
+cp $TARGETDIR/webkit/WebKitBuild/$BUILD_TYPE/lib/libJavaScriptCore.so $INSTALL_DIR_I18N/$JNI_ARCH
+$TOOLCHAIN_DIR/$CROSS_COMPILE_PLATFORM/bin/strip $INSTALL_DIR_I18N/$JNI_ARCH/libJavaScriptCore.so
 mv $TARGETDIR/webkit/WebKitBuild $TARGETDIR/webkit/${CROSS_COMPILE_PLATFORM}-${FLAVOR}
 
-cp $TOOLCHAIN_DIR/sysroot/usr/lib/$CROSS_COMPILE_PLATFORM/libc++_shared.so $INSTALL_CPPRUNTIME_DIR
+#cp $TOOLCHAIN_DIR/sysroot/usr/lib/$CROSS_COMPILE_PLATFORM/libc++_shared.so $INSTALL_CPPRUNTIME_DIR

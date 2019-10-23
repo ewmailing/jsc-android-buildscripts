@@ -27,7 +27,7 @@ android {
     }
 
     packagingOptions {
-        doNotStrip "**/libjsc.so"
+        doNotStrip "**/libJavaScriptCore.so"
     }
 }
 
